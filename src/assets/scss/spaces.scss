@@ -1,0 +1,22 @@
+$spaces: (
+  darkblue:      (72px, 64px, 48px),
+  teal:          (64px, 56px, 40px),
+  gray:          (48px, 40px, 32px),
+  tomato:        (40px, 40px, 32px),
+  gold:          (32px, 32px, 24px),
+  yellowgreen:   (24px, 24px, 24px),
+  cadetblue:     (16px, 16px, 16px),
+  royalblue:       (8px, 8px, 8px),
+);
+
+@mixin space($direction, $vr) {
+  #{$direction}: nth(map-get($spaces, $vr), 1);
+
+  @include query($lt-lg) {
+    #{$direction}: nth(map-get($spaces, $vr), 2);
+  }
+
+  @include query($lt-md) {
+    #{$direction}: nth(map-get($spaces, $vr), 3);
+  }
+}

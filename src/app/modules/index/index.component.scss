@@ -1,0 +1,228 @@
+@import './../../../styles.scss';
+
+.banner {
+  position: relative;
+  height: 650px;
+
+  @include query("(max-width: 1679px)") {
+    max-height: 500px;
+  }
+
+  @include query($lt-xll) {
+    max-height: 430px;
+  }
+
+  @include query($lt-xl) {
+    max-height: 350px;
+    min-height: 350px;
+  }
+
+
+  @include query($lt-lg) {
+    min-height: 300px;
+    max-height: 300px;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 0;
+
+    @include query($lt-md) {
+      object-position: 18% 90%;
+    }
+  }
+
+  &__wrap {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 40px;
+
+    @include query($lt-xll) {
+      padding-left: 40px;
+      padding-bottom: 50px;
+    }
+
+    @include query($lt-xl) {
+      padding-bottom: 25px;
+    }
+
+    @include query($lt-lg) {
+      padding-left: unset;
+    }
+
+    @include query($lt-lg) {
+      padding-left: 20px;
+    }
+  }
+
+  &__img-food {
+    @include query($lt-xll) {
+      width: 263px;
+      height: 246px;
+
+    }
+
+    @include query($lt-xl) {
+      width: 229px;
+      height: 215px;
+    }
+
+    @include query($lt-lg) {
+      width: 192px;
+      height: 180px;
+    }
+
+    @include query($lt-md) {
+      width: 161px;
+      height: 150px;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include space(padding-top, teal);
+  padding-bottom: 100px;
+
+  @include query($lt-xll) {
+    @include space(padding-top, gray);
+  }
+
+  @include query($lt-xl) {
+    padding-bottom: 80px;
+  }
+
+  @include query($lt-md) {
+    @include space(padding-top, teal);
+  }
+
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+    @include space(padding-top, gold);
+    @include space(padding-bottom, teal);
+
+    @include query($lt-xll) {
+      @include space(padding-bottom, gray);
+    }
+
+    @include query($lt-xl) {
+      column-gap: 20px;
+    }
+
+    @include query($lt-lg) {
+      @include space(padding-top, yellowgreen);
+      column-gap: 10px;
+    }
+
+    @include query($lt-md) {
+      grid-template-columns: 1fr;
+      column-gap: unset;
+      width: 100%;
+      @include space(row-gap, yellowgreen);
+    }
+  }
+
+  app-btn {
+    @include query($lt-md) {
+      order: -1;
+      padding-bottom: 64px;
+    }
+  }
+}
+
+.articles {
+  padding-bottom: 100px;
+
+  @include query($lt-lg) {
+    padding-bottom: 80px;
+  }
+
+  &__title {
+    @include space(margin-bottom, gold);
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+
+    @include query($lt-md) {
+      grid-template-columns: repeat(1, minmax(min-content, max-content));
+      column-gap: unset;
+      @include space(row-gap, tomato);
+    }
+  }
+
+
+  &__card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    column-gap: 24px;
+  }
+
+  &__img {
+
+    @include query($lt-md) {
+      width: 96px;
+      height: 176px;
+      object-fit: cover
+    }
+  }
+
+  &__subtitle {
+    @include space(margin-bottom, royalblue);
+  }
+
+  &__text {
+    @include space(margin-bottom, yellowgreen);
+    color: $grey;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    text-transform: uppercase;
+    color: $fuchsia;
+
+    icon-arrow {
+      margin-right: 10px;
+
+      &::ng-deep svg {
+        fill: $fuchsia;
+      }
+
+    }
+  }
+}
+
+
+// лечит баг на сафари айфона
+
+app-card {
+  &::ng-deep {
+    .card__text a {
+      color: $grey;
+    }
+  }
+}

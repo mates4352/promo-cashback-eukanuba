@@ -1,0 +1,60 @@
+<section class="receipt">
+  <ul class="receipt__list">
+    <li class="receipt__item">
+      <div class="receipt__img">
+        <lib-ngx-image-zoom
+          thumbImage="./../../../../assets/images/receipt_min.png"
+          fullImage="./../../../../assets/images/receipt_big.jpg"
+          [magnification]="1.2"
+          [enableScrollZoom]="true"
+          [enableLens]="true"
+          [lensWidth]="120"
+          [lensHeight]="120"
+          [circularLens]="true">
+        </lib-ngx-image-zoom>
+
+        <button
+          class="receipt__btn-zoom"
+          type="button"
+          aria-label="Кнопка приблизить изображение">
+          <icon-zoom></icon-zoom>
+        </button>
+
+        <ul class="receipt__prompt button">
+          <li class="receipt__promt-item">Наведите курсор мыши на изображение</li>
+          <li class="receipt__promt-item">Для увеличения масштаба используйте колесико мыши</li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="receipt__item">
+      <h4 class="receipt__subtitle p1 p1--regular">В чеке обязательно должны присутствовать:</h4>
+
+      <ul class="receipt__info">
+        <li class="receipt__info-item p1 p1--regular" *ngFor="let item of listInfo">{{item.text}}</li>
+      </ul>
+
+      <p class="receipt__text p1 p1--regular">
+        <span>На фото должен присутствовать только один чек.</span>
+        <span>Чек должен быть сфотографирован полностью. Если чек длинный, то Вы можете сфотографировать его по частям (не более 5 изображений).</span>
+        <span>Изображение (я) должны быть загружены в формате JPEG или PNG.</span>
+      </p>
+    </li>
+
+    <li class="receipt__item">
+      <p class="receipt__subtext p1 p1--regular" *ngIf="!isReceiptSent">
+        <span>Не болee 5 изображений одного чека.</span>
+          Общий размер загружаемых фотографий не должен превышать 25 мб.
+      </p>
+
+      <p class="receipt__subtext p1 p1--regular" *ngIf="isReceiptSent">
+        <b class="h2 h2--regular">Чек успешно загружен</b>
+        Кешбэк поступит на счёт мобильного телефона в течение 2-7 дней.
+      </p>
+
+      <div id="apm-widget-desktop" *ngIf="!isReceiptSent"></div>
+    </li>
+
+
+  </ul>
+</section>

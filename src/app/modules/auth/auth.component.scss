@@ -1,0 +1,180 @@
+@import './../../../styles.scss';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include space(padding-top, gray);
+  @include space(padding-bottom, gray);
+
+  @include query($lt-md) {
+    @include space(padding-top, teal);
+    @include space(padding-bottom, teal);
+  }
+
+  &__title {
+    @include space(margin-bottom, gold);
+    max-width: 550px;
+
+    text-transform: uppercase;
+    text-align: center;
+
+    @include query($lt-lg) {
+      @include space(margin-bottom, yellowgreen)
+    }
+
+    @include query($lt-md) {
+      @include space(margin-bottom, cadetblue)
+    }
+
+    span {
+      color: $fuchsia;
+    }
+
+    br {
+      display: none;
+
+      @include query("(max-width: 419px)") {
+        display: block;
+      }
+    }
+
+    img {
+      height: 28px;
+
+      @include query($lt-lg) {
+        height: 23px;
+      }
+
+      @include query($lt-sm) {
+        height: 19px;
+      }
+    }
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
+      @include space(margin-bottom, cadetblue);
+
+      @include query($lt-lg) {
+        @include space(margin-bottom, royalblue)
+      }
+
+      @include query($lt-md) {
+        margin-bottom: 0;
+      }
+  }
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  max-width: 368px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 44px;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: $grey;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 20px;
+    padding-left: 10px;
+    @include space(padding-top, yellowgreen);
+    @include space(margin-bottom, yellowgreen);
+
+    color: $fuchsia;
+  }
+
+  app-btn {
+    display: block;
+    @include space(margin-top, cadetblue);
+
+    @include query($lt-md) {
+      @include space(margin-top, yellowgreen);
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    top: 22px;
+    left: 0;
+
+    color: $grey;
+    transition: top 500ms ease, left 500ms ease, font-size 500ms ease;
+  }
+
+  .form__caption.isFocus {
+    top: 0;
+    font-size: 10px;
+  }
+
+  &__input:hover + .form__caption {
+    top: 0;
+    font-size: 10px;
+  }
+
+  &::ng-deep app-btn button {
+
+    @include query($lt-md) {
+      width: 100%;
+    }
+  }
+}
+
+.cards {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+    @include space(padding-bottom, gray);
+
+    @include query($lt-xl) {
+      column-gap: 20px;
+    }
+
+    @include query($lt-lg) {
+      column-gap: 10px;
+    }
+
+    @include query($lt-md) {
+      grid-template-columns: 1fr;
+      column-gap: unset;
+      @include space(row-gap, tomato);
+      @include space(padding-bottom, yellowgreen);
+    }
+  }
+
+  &__text {
+    color: $grey;
+
+    @include space(padding-bottom, yellowgreen);
+
+    @include query($lt-xl) {
+      @include space(padding-bottom, yellowgreen);
+    }
+
+    @include query($lt-md) {
+      text-align: center;
+      @include space(padding-bottom, darkblue);
+    }
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  span {
+    @include query($lt-md) {
+      display: none;
+    }
+  }
+}
+

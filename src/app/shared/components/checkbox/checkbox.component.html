@@ -1,0 +1,11 @@
+<input
+  [id]="id"
+  (change)="onValueChange()"
+  [checked]="isChecked"
+  [required]="required"
+  type="checkbox"
+  class="input-checkbox visually-hidden"
+>
+<label class="label comment comment--regular" [for]="id">
+  {{text}}
+</label>

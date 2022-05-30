@@ -1,0 +1,243 @@
+@import "./../../../../styles.scss";
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.200);
+  overflow: auto;
+
+  @include query($lt-md) {
+    padding: 0 20px;
+  }
+
+  &__body {
+    position: relative;
+
+    width: 100%;
+    max-width: 1184px;
+    margin: auto;
+
+    background-color: $white;
+    border-radius: 24px;
+    overflow: hidden;
+
+
+    @include query($lt-xl) {
+      max-width: 928px;
+    }
+
+    @include query($lt-lg) {
+      max-width: 728px;
+    }
+  }
+
+  &__content {
+    @include space(padding-top, gold);
+    padding-left: 40px;
+    padding-right: 40px;
+
+    @include query($lt-xll) {
+      @include space(padding-top, teal);
+    }
+
+    @include query($lt-md) {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    &--receipt-sent {
+      @include query($lt-md) {
+        padding: 10px 0 0 0;
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+
+    fill: $fuchsia;
+    cursor: pointer;
+
+    @include query($lt-md) {
+      top: 27px;
+      right: 27px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    @include space(margin-bottom, gold);
+
+    @include query($lt-md) {
+      text-align: center;
+    }
+
+    span:nth-of-type(1) {
+      @include query($lt-md) {
+        display: none;
+      }
+    }
+
+    span:nth-of-type(2) {
+      display: none;
+
+      @include query($lt-md) {
+        display: block;
+      }
+    }
+  }
+
+  &__status {
+    padding: 34px 72px;
+    color: $grey;
+    background-color: $bright_grey;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+
+    @include query($lt-xl) {
+      padding: 34px 32px;
+    }
+
+    @include query($lt-xl) {
+      padding: 16px 24px;
+    }
+  }
+
+  &__expectation {
+    position: relative;
+    padding-left: 16px;
+    color: $warning;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 45%;
+      left: 2px;
+      transform: translateY(-50%);
+
+      width: 8px;
+      height: 8px;
+
+      background-color: $warning;
+      border-radius: 50%;
+    }
+
+    &--notLoaded {
+      color: $fuchsia;
+
+      &::before {
+        background-color: $fuchsia;
+      }
+    }
+
+    &--loadedSuccessfully {
+      color :$success;
+
+      &::before {
+        background-color: $success;
+      }
+    }
+  }
+}
+
+
+.slider {
+  display: none;
+  width: 100%;
+
+  text-align: center;
+
+  background-color: $white;
+  border-radius: 24px;
+
+  @include query($lt-md) {
+    display: block;
+  }
+
+  app-btn {
+    position: relative;
+
+    display: block;
+    margin: 40px 0;
+
+    &::ng-deep button {
+      width: 216px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 80%;
+      height: 2px;
+
+      background-color: $bright_grey;
+
+      @include query($lt-sm) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__text {
+    position: relative;
+
+    @include space(padding-top, yellowgreen);
+    @include space(padding-bottom, yellowgreen);
+    padding-left: 20px;
+    padding-right: 20px;
+
+    color: $grey;
+    text-align: center;
+
+    span {
+      display: block;
+      @include space(margin-bottom, royalblue);
+    }
+
+    b {
+      display: block;
+      margin-bottom: 16px;
+      color: $fuchsia;
+      text-transform: uppercase;
+    }
+
+    &::before {
+      content: "";
+      display: none;
+
+      @include query($lt-lg) {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: block;
+        width: 100%;
+        height: 2px;
+
+        background-color: #eaeaea;
+      }
+
+      @include query($lt-md) {
+        display: none;
+      }
+    }
+
+    &--line {
+      &::before {
+        display: block;
+      }
+    }
+  }
+}

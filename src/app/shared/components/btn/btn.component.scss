@@ -1,0 +1,68 @@
+@import './../../../../styles.scss';
+
+.btn {
+  z-index: 1;
+
+  width: 368px;
+  min-height: 50px;
+
+  color: $white;
+  text-transform: uppercase;
+
+  background-color: $fuchsia;
+  border: 1px solid transparent;
+
+  transition: color 500ms ease, background-color 500ms ease, border 500ms ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid $fuchsia;
+
+    color: $fuchsia;
+  }
+
+  &:disabled {
+    background-color: $bright_grey;
+    border: 1px solid transparent;
+
+    color: $white;
+
+    &:hover {
+      background-color: $bright_grey;
+      border: 1px solid transparent;
+
+      color: $white;
+    }
+  }
+
+  @include query($lt-md) {
+    width: 280px;
+    min-height: 44px;
+  }
+
+  // вот такой модификатор лучше не делать в общем компоненте, у тебя кнопки в разном месте могут быть разного размера,
+  // лучше там им (в родительском компоненте) им размеры и задавать. Убрать это отсюда
+
+  &--size {
+    width: 430px;
+
+    @include query($lt-xll) {
+      width: 376px;
+    }
+
+    @include query($lt-xl) {
+      width: 302px;
+    }
+
+    @include query($lt-lg) {
+      width: 233px;
+    }
+
+    @include query($lt-lg) {
+      width: 280px;
+      height: 44px;
+
+    }
+  }
+}

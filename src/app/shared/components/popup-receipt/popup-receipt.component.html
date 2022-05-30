@@ -1,0 +1,41 @@
+<section class="popup">
+  <div class="popup__body">
+    <div class="popup__content"
+         [class.popup__content--receipt-sent]="isReceiptSent"
+    >
+
+      <button
+        class="popup__close"
+        type="button"
+        (click)="closePopup()">
+        <icon-close></icon-close>
+      </button>
+      <h3 class="popup__title h2 h2--medium"><span>Что должно быть на фото</span>
+        <span class="button" *ngIf="!isReceiptSent">требования к фото чека</span></h3>
+
+      <app-receipt></app-receipt>
+
+      <div class="slider">
+        <app-receipt-slider *ngIf="!isReceiptSent"></app-receipt-slider>
+
+        <div id="apm-widget-mobile" *ngIf="!isReceiptSent"></div>
+
+        <p class="slider__text slider__text--line p1 p1--regular" *ngIf="!isReceiptSent">
+          <span>Не болee 5 изображений одного чека.</span>
+
+          Общий размер загружаемых фотографий не должен превышать 25 мб.
+        </p>
+
+        <p class="slider__text dfsg p1 p1--regular" *ngIf="isReceiptSent">
+          <b class="h2 h2--regular">Чек успешно загружен</b>
+          Кешбэк поступит на счёт мобильного телефона в течение 2-7 дней.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+

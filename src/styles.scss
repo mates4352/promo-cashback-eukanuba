@@ -1,0 +1,109 @@
+@import "assets/scss/reset.scss";
+@import "assets/scss/variables.scss";
+@import "assets/scss/colors.scss";
+@import "assets/scss/spaces.scss";
+@import "assets/scss/mixins.scss";
+@import "assets/scss/fonts.scss";
+@import "assets/scss/classes.scss";
+
+//стили для дисконто
+
+.apm-widget {
+  max-width: 210px;
+  margin-left: 36px;
+}
+
+.apm-btn-main {
+  width: 320px;
+  background-color: transparent;
+  box-shadow: none;
+
+  @include query($lt-md) {
+    width: 216px;
+    margin-bottom: 32px;
+  }
+}
+
+.custom-main-button {
+  width: 320px;
+  line-height: 20px;
+  background-color: transparent;
+  box-shadow: none;
+  letter-spacing: 0;
+
+  @include query($lt-xl) {
+    width: 254px;
+  }
+
+  @include query($lt-lg) {
+    width: 320px;
+  }
+
+  @include query($lt-md) {
+    width: 216px;
+    background-color: $fuchsia;
+    border-radius: 0;
+  }
+
+  span {
+    padding-left: 22px;
+    font-family: "DINPro_Medium", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: $fuchsia;
+    text-transform: uppercase;
+    background-image: url("assets/images/img.svg");
+    background-repeat: no-repeat;
+    background-position: left top -1px;
+
+    @include query($lt-md) {
+      color: $white;
+      padding-left: 0;
+      background-image: none;
+    }
+  }
+}
+
+.apm-modal-backdrop {
+  display: none;
+}
+
+.apm-close {
+  background-color: $fuchsia;
+}
+
+h3.apm-title, .apm-p, .apm-p-input {
+  font-family: "DINPro", Arial, sans-serif;
+  color: $black;
+  letter-spacing: 0;
+}
+
+.custom-manual-qr-button,
+.custom-upload-button,
+.custom-add-photo-button,
+.custom-submit-manual-qr-button,
+.custom-submit-photos-button {
+  .btn-content {
+    font-family: "DINPro_Medium", Arial, sans-serif;
+    color: $white;
+    letter-spacing: 0;
+  }
+
+  background-color: $fuchsia;
+  box-shadow: none;
+}
+
+.apm-modal-body {
+  .custom-main-button {
+    display: none;
+  }
+}
+
+.apm-action-button {
+
+  @include query($lt-md) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

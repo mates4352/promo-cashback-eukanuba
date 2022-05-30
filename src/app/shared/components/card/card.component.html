@@ -1,0 +1,29 @@
+<div class="card">
+  <span class="card__number" *ngIf="number">{{number}}</span>
+
+  <div class="card__wrap">
+    <icon-food class="card__icon" *ngIf="icon ==='iconFood'"></icon-food>
+    <icon-qr-code class="card__icon" *ngIf="icon ==='iconQrCode'"></icon-qr-code>
+    <icon-coins class="card__icon" *ngIf="icon ==='iconCoins'"></icon-coins>
+
+    <div class="card__info">
+      <h3 class="card__title h2 h2--bold">
+        <span [innerHtml]="title"></span>
+        <br *ngIf="isSubTitleCarryover">
+
+        <span [innerHtml]="subTitle"></span>
+        <img *ngIf="isImgTitleVisible" src="./../../../../assets/images/ruble2.svg" alt="ruble">
+      </h3>
+
+      <a class="card__link p1 p1--regular" [href]="href" *ngIf="link">{{link}}</a>
+
+      <p class="card__text p1 p1--regular">
+        <span [innerHtml]="text"></span>
+        <br *ngIf="isSubTextCarryover">
+
+        <span [innerHtml]="subText"></span>
+        <img *ngIf="isImgTextVisible" src="./../../../../assets/images/ruble3.svg" alt="ruble">
+      </p>
+    </div>
+  </div>
+</div>

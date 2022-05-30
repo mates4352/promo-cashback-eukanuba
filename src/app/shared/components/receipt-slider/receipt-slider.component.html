@@ -1,0 +1,35 @@
+<swiper
+  class="receipt-slider"
+  [navigation]="true"
+  [pagination]="true"
+  [slidesPerView]="1"
+  [spaceBetween]="50">
+
+
+  <ng-template swiperSlide>
+    <img class="receipt-slider__img" src="./../../../../assets/images/receipt.png" alt="Изображение чека">
+  </ng-template>
+
+  <ng-template swiperSlide>
+    <div class="receipt-slider__info">
+      <h4 class="receipt-slider__subtitle p1 p1--regular">В чеке обязательно должны присутствовать:</h4>
+
+      <ul class="receipt-slider__list">
+        <li class="receipt-slider__item p1 p1--regular" *ngFor="let item of listInfo">{{item.text}} <span>{{item.bold}}</span></li>
+      </ul>
+    </div>
+  </ng-template>
+
+  <ng-template swiperSlide>
+    <div class="receipt-slider__info">
+      <h4 class="receipt-slider__subtitle p1 p1--regular">На фото должен присутствовать только один чек.</h4>
+
+      <p class="receipt-slider__text p1 p1--regular">
+        <span>Чек должен быть сфотографирован полностью. Если чек длинный, то Вы можете сфотографировать его по частям (не более 5 изображений).</span>
+        <span>Изображение (я) должны быть загружены в формате JPEG или&nbsp;PNG.</span>
+        <span class="p2">Не болee 5 изображений одного чека.</span>
+        <span class="p2">Общий размер загружаемых фотографий не должен превышать 25 мб.</span>
+      </p>
+    </div>
+  </ng-template>
+</swiper>

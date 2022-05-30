@@ -1,0 +1,65 @@
+<div class="popup">
+  <div class="popup__body">
+    <button
+      class="popup__btn"
+      type="button"
+      aria-label="Кнопка закрыть окно регистрации"
+      (click)="closePopup()">
+      <icon-close></icon-close>
+    </button>
+
+    <h3 class="popup__title h1">Введите код из СМС</h3>
+
+    <form class="form" #passwordForm="ngForm">
+      <ng-otp-input
+        [config]="config"
+        (onInputChange)="onValueChange($event)"
+      ></ng-otp-input>
+
+      <p *ngIf="isCodeError" class="form__error comment comment--regular">Неверный проверочный код</p>
+
+      <ul class="form__list">
+        <li class="form__item">
+          <app-checkbox
+            [id]="'confidentiality'"
+            [isChecked]="isTermsAccepted"
+            (valueChange)="applyTerms()"
+            [required]="true"
+            [text]="'Я ознакомился с Положением о конфиденциальности, Правилами Акции и даю свое согласие ' +
+           'на обработку персональных данных.*'"
+          ></app-checkbox>
+        </li>
+
+        <li class="form__item">
+          <app-checkbox
+            [isChecked]="isOlder18"
+            (valueChange)="applyAge()"
+            [required]="true"
+            [id]="'age'"
+            [text]="'Мне исполнилось 18 лет.*'"
+          ></app-checkbox>
+        </li>
+      </ul>
+
+      <app-btn
+        (click)="login()"
+        [disabled]="!checkFormValid()"
+        type="submit"
+        text="ПОДТВЕРДИТЬ И ВОЙТИ">
+      </app-btn>
+
+      <p class="form__text comment comment--regular">
+        Не пришёл код?
+        <button
+          class="form__btn comment comment--regular"
+          type="button"
+          [disabled]="isSendAgainClicked"
+          (click)="onSendAgain()"
+        >Отправить снова</button>
+      </p>
+
+      <p *ngIf="isSendAgainClicked" class="form__text comment comment--regular">Повторить можно
+        через {{this.timerLeft}}</p>
+    </form>
+  </div>
+</div>

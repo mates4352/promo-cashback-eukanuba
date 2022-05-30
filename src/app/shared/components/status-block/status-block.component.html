@@ -1,0 +1,17 @@
+<section class="status" *ngIf="receiptStatus !== 'null'">
+  <div class="container"
+       [class.status__inner]="isPopup"
+  >
+    <p class="status__text p1 h2--regular">Статус:
+      <span *ngIf="receiptStatus === 'inProcess'"
+            class="status__text-receipt status__text-receipt--pending"
+      >Чек находится в обработке</span>
+      <span *ngIf="receiptStatus === 'approved'"
+            class="status__text-receipt status__text-receipt--success"
+      >Чек успешно загружен</span>
+      <span *ngIf="receiptStatus === 'error'"
+            class="status__text-receipt status__text-receipt--error"
+      >Чек не принят</span>
+    </p>
+  </div>
+</section>

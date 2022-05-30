@@ -1,0 +1,72 @@
+<app-header [img]="'./../../../../assets/images/dog_1.jpg'"></app-header>
+
+<section class="content container">
+  <h1 class="content__title supercaption">
+    <span>получите</span> кешбэк <br> от 100
+    <img src="./../../../assets/images/ruble.svg"
+         alt="Изображение рубля">* <span>на&nbsp;мобильный телефон</span>
+  </h1>
+
+  <h2 class="content__subtitle h1">зарегистрироваться</h2>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="submitForm()">
+    <input
+      #inputTel
+      formControlName="tel"
+      class="form__input p2"
+      id="input"
+      type="tel"
+      [prefix]="inputTel.value ? '+7' : '' "
+      mask="(000) 000-00-00">
+
+    <label
+      class="form__caption p2"
+      [class.isFocus]="inputTel.value"
+      for="input">
+      Введите номер телефона
+    </label>
+
+    <app-btn
+      [disabled]="form.controls['tel'].value.length !== 17"
+      [type]="'submit'"
+      [text]="'Получить код'">
+    </app-btn>
+  </form>
+</section>
+
+
+<section class="cards">
+  <ul class="cards__list container">
+    <li class="cards__item" *ngFor = "let item of cardList">
+      <app-card
+        [title]="item.title"
+        [subTitle]="item.subTitle"
+        [isSubTitleCarryover]="item.isSubTitleCarryover"
+        [isImgTitleVisible]="item.isImgTitleVisible"
+        [text]="item.text"
+        [isImgTextVisible]="item.isImgTextVisible"
+        [link]="item.link"
+        [href]="item.href"
+        [icon]="item.icon"
+        [number]="item.number">
+      </app-card>
+    </li>
+  </ul>
+
+  <p class="cards__text comment comment--regular container">
+    *При покупке Eukanuba™ для собак на сумму 300-1000 рублей
+    – кешбэк 100 рублей, на сумму 1001-2000 рублей – кешбэк 200 рублей,
+    на сумму более 2001 рублей – кешбэк 500 рублей. <span>Организаторы акции АО
+    “РУСКАН” и ООО “РУСКАН ДИСТРИБЬЮШН”. Общий срок проведения акции с 01.09.2021 по 31.12.2021.
+    Количество акционного товара ограничено. Подробную информацию об организаторе акции,
+    правилах её проведения, количестве призов, сроках и порядке их получения можно узнать на
+    promo.cashback.eukanuba.ru</span>
+  </p>
+</section>
+
+<app-popup-registration
+  *ngIf="isPopupOpen"
+  (closePopupBtn)="isPopupOpen = false">
+</app-popup-registration>
+
+<app-footer></app-footer>

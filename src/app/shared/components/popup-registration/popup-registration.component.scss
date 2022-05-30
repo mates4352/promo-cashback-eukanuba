@@ -1,0 +1,178 @@
+@import './../../../../styles.scss';
+
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2000);
+
+
+  @include query($lt-md) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &__body {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    min-height: 377px;
+    padding-left: 116px;
+    padding-right: 116px;
+    @include space(padding-top, gold);
+    @include space(padding-bottom, gray);
+
+    background-color: #fff;
+    border-radius: 24px;
+
+    @include query($lt-xll) {
+      max-width: 500px;
+      padding-left: 66px;
+      padding-right: 66px;
+    }
+
+    @include query($lt-md) {
+      @include space(padding-top, darkblue);
+      @include space(padding-bottom, teal);
+    }
+
+    @include query($lt-sm) {
+      padding-top: 64px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 27px;
+    right: 27px;
+
+    fill: $fuchsia;
+    cursor: pointer;
+}
+
+  &__title {
+    @include space(margin-bottom, yellowgreen);
+    text-transform: uppercase;
+
+    @include query($lt-md) {
+      @include space(margin-bottom, gold);
+    }
+  }
+}
+
+.form {
+  ng-otp-input {
+    display: block;
+    @include space(margin-bottom, yellowgreen);
+
+    @include query($lt-md) {
+      @include space(margin-bottom, gold);
+    }
+
+    &::ng-deep .wrapper {
+      display: grid;
+      grid-template-columns: repeat(6, 43px);
+      grid-template-rows: 43px;
+      justify-content: center;
+      column-gap: 8px;
+
+      @include query($lt-md) {
+        grid-template-columns: repeat(6, 32px);
+        grid-template-rows: 32px;
+        @include space(margin-bottom, gold);
+      }
+    }
+
+    &::ng-deep .wrapper .otp-input {
+      width: 100%;
+      height: 100%;
+      margin-right: 0;
+
+      font-size: 32px;
+      line-height: 40px;
+      font-family: "DINPro_Medium", cursive;
+
+      @include query($lt-lg) {
+        font-size: 24px;
+        line-height: 28px;
+      }
+    }
+  }
+
+  &__input-number {
+    width: 100%;
+
+    text-align: center;
+
+    border: 1px solid $grey;
+    border-radius: 2px;
+  }
+
+
+  &__wrap-input {
+    display: flex;
+  }
+
+  &__item {
+    @include space(margin-bottom, royalblue);
+
+    &:last-of-type {
+
+      @include space(margin-bottom, cadetblue);
+
+      @include query($lt-md) {
+        @include space(margin-bottom, teal);
+      }
+    }
+  }
+
+  &::ng-deep app-btn button{
+    width: 100%;
+  }
+
+  app-btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__text {
+    @include space(margin-top, royalblue);
+    text-align: center;
+    color: $grey;
+
+    @include query($lt-md) {
+      @include space(margin-bottom, cadetblue);
+    }
+  }
+
+  &__btn {
+    color: $fuchsia;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:disabled {
+      color: $grey;
+    }
+  }
+
+  &__error {
+    margin-bottom: 16px;
+    text-align: center;
+    color: $error;
+  }
+}

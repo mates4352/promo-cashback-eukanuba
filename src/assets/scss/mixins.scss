@@ -1,0 +1,7 @@
+//Миксин для адаптации, значения только те что в variables.scss
+
+@mixin query($media) {
+  @media only screen and #{$media} {
+    @content;
+  }
+}

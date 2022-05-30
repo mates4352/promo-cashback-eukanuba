@@ -1,0 +1,141 @@
+//Здесь подключаются шрифты и классы к ним
+@font-face {
+  font-family: DINPro;
+  font-display: swap;
+  src: url("../fonts/PFDinDisplayPro-Regular.woff2") format("woff2"),
+  url("../fonts/PFDinDisplayPro-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: DINPro_Medium;
+  font-display: swap;
+  src: url("../fonts/PFDinDisplayPro-Medium.woff2") format("woff2"),
+  url("../fonts/PFDinDisplayPro-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: DINPro_Bold;
+  font-display: swap;
+  src: url("../fonts/PFDinDisplayPro-Bold.woff2") format("woff2"),
+  url("../fonts/PFDinDisplayPro-Bold.woff") format("woff");
+}
+
+.supercaption {
+  font-size: 40px;
+  line-height: 48px;
+  font-family: "DINPro_Medium", Arial, sans-serif;
+
+  @include query($lt-lg) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  @include  query($lt-sm) {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+
+.h1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-family: "DINPro_Medium", Arial, sans-serif;
+
+  @include query($lt-lg) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+.h2 {
+  font-size: 20px;
+  line-height: 20px;
+
+  &--regular {
+    font-family: "DINPro", Arial, sans-serif;
+  }
+
+  &--medium {
+    font-size: 22px;
+    line-height: 24px;
+    font-family: "DINPro_Medium", Arial, sans-serif;
+  }
+
+  &--bold {
+    line-height: 24px;
+    font-family: "DINPro_Bold", Arial, sans-serif;
+  }
+}
+
+.h3 {
+  font-size: 18px;
+  line-height: 22px;
+  font-family: "DINPro_Medium", Arial, sans-serif;
+}
+
+.p1 {
+  font-size: 16px;
+  line-height: 20px;
+
+  @include query($lt-lg) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &--regular {
+    font-family: "DINPro", Arial, sans-serif;
+  }
+
+  &--medium {
+    font-size: 16px;
+    line-height: 16px;
+    font-family: "DINPro_Medium", Arial, sans-serif;
+  }
+
+  &--bold {
+    line-height: 20px;
+    font-family: "DINPro_Bold", Arial, sans-serif;
+
+    @include query($lt-md) {
+      line-height: 16px;
+    }
+  }
+}
+
+.p2 {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "DINPro_Medium", Arial, sans-serif;
+
+  &--bold {
+    font-family: "DINPro_Bold", Arial, sans-serif;
+  }
+
+  @include query($lt-lg) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.comment {
+  font-size: 12px;
+  line-height: 16px;
+
+  &--regular {
+    font-family: "DINPro", Arial, sans-serif;
+  }
+
+  &--medium {
+    font-family: "DINPro_Medium", Arial, sans-serif;
+  }
+
+  &--underlined {
+    text-decoration: underline;
+  }
+}
+
+.button {
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "DINPro_Medium", Arial, sans-serif;
+}

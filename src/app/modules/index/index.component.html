@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<section class="banner">
+  <img class="banner__img" src="./../../../assets/images/dog_2.jpg" alt="Изображение баннера сайта Eukanuba">
+
+  <div class="banner__wrap container">
+    <img class="banner__img-food" src="./../../../assets/images/food.png" alt="Изображение корма Eukanuba">
+  </div>
+</section>
+
+<app-status-block
+  [receiptStatus]="receiptStatus"
+></app-status-block>
+
+<section class="content container">
+  <h1 class="content__title supercaption">получите кешбэк в&nbsp;размере:</h1>
+
+  <ul class="content__cards">
+    <li class="content__card" *ngFor="let item of cardList">
+      <app-card
+        [text]="item.text"
+        [subText]="item.subText"
+        [isSubTextCarryover]="item.isSubTextCarryover"
+        [isImgTextVisible]="item.isImgTextVisible"
+        [title]="item.title"
+        [isImgTitleVisible]="item.isImgTitleVisible"
+        [icon]="item.icon">
+      </app-card>
+    </li>
+  </ul>
+
+  <app-btn
+    text="загрузить чек"
+    modifier="btn--size"
+    [disabled]="receiptStatus === 'inProcess' || receiptStatus === 'approved'"
+    (click)="isOpen = !isOpen">
+  </app-btn>
+</section>
+
+<section class="articles container">
+  <h2 class="articles__title h1">познавательные статьи</h2>
+
+  <ul class="articles__list">
+    <li class="articles__item" *ngFor="let item of articles">
+      <article class="articles__card">
+        <img class="articles__img" [src]="item.img" alt="Изображение статьи">
+
+        <div class="articles__info">
+          <h2 class="articles__subtitle h2 h2--medium">{{item.title}}</h2>
+          <p class="articles__text p1 h2--regular">{{item.text}}</p>
+          <a class="articles__link button" target="_blank" [href]="item.href">
+            <icon-arrow></icon-arrow>
+            подробнее</a>
+        </div>
+      </article>
+    </li>
+  </ul>
+</section>
+
+<app-popup-receipt
+  (closePopupBtn)="isOpen = !isOpen"
+  *ngIf="isOpen">
+</app-popup-receipt>
+
+<app-footer></app-footer>

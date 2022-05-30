@@ -1,0 +1,202 @@
+@import './../../../../styles.scss';
+
+.footer {
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  background-color: $bright_grey;
+
+  &__links {
+    display: grid;
+    grid-template-columns: 0.8fr 0.6fr 0.5fr;
+    grid-template-areas:
+      "title_1 title_2 title_3"
+      "list_1  list_2  list_3 ";
+    row-gap: 12px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $grey;
+
+    @include query($lt-md) {
+      grid-template-columns: max-content;
+      grid-template-areas:
+        "title_1"
+        "list_1"
+
+        "title_2"
+        "list_2"
+
+        "title_3"
+        "list_3"
+      ;
+      row-gap: 8px;
+    }
+  }
+
+  &__title {
+    grid-area: title_1;
+
+    color: $grey;
+    text-transform: uppercase;
+  }
+
+  &__title:nth-of-type(2) {
+    grid-area: title_2;
+  }
+
+  &__title:nth-of-type(3) {
+    grid-area: title_3;
+  }
+
+  &__list {
+    grid-area: list_1;
+    display: grid;
+    grid-auto-rows: max-content;
+    row-gap: 8px;
+
+    @include query($lt-md) {
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__list:nth-of-type(2) {
+    grid-area: list_2;
+  }
+
+  &__list:nth-of-type(3) {
+    grid-area: list_3;
+  }
+
+  &__link {
+    color: $fuchsia;
+  }
+
+  &__connection {
+    display: grid;
+    grid-template-columns: 0.8fr 0.6fr 0.5fr;
+    grid-template-areas:
+      "rights tel socials"
+    ;
+    align-items: center;
+    padding-top: 28px;
+
+    @include query($lt-xl) {
+      grid-template-columns: 0.8fr 0.55fr 0.5fr;
+    }
+
+    @include query($lt-lg) {
+      grid-template-columns: 0.8fr 0.6fr 0.5fr;
+      align-content: center;
+      align-items: flex-start;
+    }
+
+    @include query($lt-md) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "tel"
+        "socials"
+        "rights"
+      ;
+    }
+  }
+
+  &__rights {
+    grid-area: rights;
+
+    color: $grey;
+
+    @include query($lt-md) {
+      margin-top: 24px;
+    }
+
+    span {
+      @include query($lt-lg) {
+        display: block;
+      }
+
+      @include query($lt-md) {
+        display: inline;
+      }
+    }
+  }
+
+  &__tel {
+    grid-area: tel;
+
+    color: $grey;
+
+    @include query($lt-md) {
+      margin-bottom: 8px;
+    }
+
+    span {
+      @include query($lt-lg) {
+        display: block;
+        padding-left: 22px;
+      }
+
+      @include query($lt-md) {
+        display: inline;
+        padding-left: unset;
+      }
+    }
+  }
+
+  &__socials {
+    grid-area: socials;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 16px;
+
+    @include query($lt-lg) {
+      grid-template-columns: max-content;
+      row-gap: 5px;
+    }
+
+    @include query($lt-md) {
+      grid-template-columns: repeat(2, max-content);
+      justify-content: flex-start;
+      padding-bottom: 24px;
+
+      border-bottom: 1px solid $grey;
+    }
+  }
+
+  &__text-icons {
+    color: $grey;
+  }
+
+  &__icons {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 16px;
+
+    @include query($lt-lg) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__icon-link {
+    fill: $fuchsia;
+  }
+}
+
+.ot-sdk-show-settings {
+  display: block;
+  padding: 0 !important;
+  color: #EC068D !important;
+  border: none !important;
+  text-align: left !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+

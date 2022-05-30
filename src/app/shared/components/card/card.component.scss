@@ -1,0 +1,260 @@
+@import './../../../../styles.scss';
+
+.card {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  width: 430px;
+  height: 100%;
+  min-height: 144px;
+
+  border: 2px solid $fuchsia;
+  border-radius: 24px;
+
+  @include space(padding-top, gold);
+  @include space(padding-bottom, yellowgreen);
+  padding-left: 44px;
+  padding-right: 35px;
+
+  @include query($lt-xll) {
+    width: 377px;
+    min-height: 156px;
+    @include space(padding-bottom, yellowgreen);
+  }
+
+  @include query($lt-xl) {
+    width: 296px;
+    min-height: 146px;
+    padding-left: 12px;
+    padding-right: 28px;
+    @include space(padding-bottom, cadetblue);
+  }
+
+  @include query($lt-lg) {
+    width: 232px;
+    padding-left: 12px;
+    padding-right: 12px;
+    @include space(padding-bottom, yellowgreen);
+  }
+
+  @include query($lt-md) {
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 130px;
+    padding-left: 6px;
+    @include space(padding-top, cadetblue);
+    @include space(padding-bottom, cadetblue);
+  }
+
+  &__icon {
+    margin-right: 16px;
+
+
+    @include query($lt-xll) {
+      margin-right: 11px;
+    }
+
+    @include query($lt-md) {
+      margin-right: 9px;
+    }
+  }
+
+  icon-food {
+    padding-left: 31px;
+
+    @include query($lt-xll) {
+      padding-left: 0;
+    }
+
+    @include query($lt-md) {
+      padding-left: 3px;
+    }
+
+    &::ng-deep svg {
+      width: 65px;
+      height: 71px;
+
+      fill: $fuchsia;
+
+      @include query($lt-xl) {
+        width: 57px;
+        height: 69px;
+      }
+
+      @include query($lt-lg) {
+        width: 42px;
+        height: 53px;
+      }
+
+      @include query($lt-md) {
+        width: 57px;
+        height: 59px;
+      }
+    }
+  }
+
+  icon-qr-code {
+
+    &::ng-deep svg {
+      width: 61px;
+      height: 61px;
+
+      @include query($lt-xl) {
+        width: 52px;
+        height: 60px;
+      }
+
+      @include query($lt-lg) {
+        width: 40px;
+        height: 40px;
+      }
+
+      @include query($lt-md) {
+        width: 63px;
+        height: 60px;
+        padding-left: 9px;
+      }
+    }
+  }
+
+  icon-coins {
+    @include query($lt-xll) {
+      padding-left: 10px;
+    }
+
+    @include query($lt-xl) {
+      padding-left: 0;
+    }
+
+
+    &::ng-deep svg {
+      width: 67px;
+      height: 80px;
+
+      fill: $fuchsia;
+
+      @include query($lt-xl) {
+        width: 55px;
+        height: 77px;
+      }
+
+      @include query($lt-lg) {
+        width: 45px;
+        height: 60px;
+      }
+
+      @include query($lt-md) {
+        width: 75px;
+        height: 76px;
+        padding-left: 8px;
+        margin-top: -6px;
+      }
+    }
+  }
+
+  &__number {
+    @include space(margin-bottom, yellowgreen);
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+
+    font-family: "DINPro_Bold", cursive;
+    font-size: 20px;
+    line-height: 1;
+    text-transform: uppercase;
+    color: $white;
+
+    border-radius: 50%;
+    background-color: $fuchsia;
+
+    @include query($lt-lg) {
+      font-size: 18px;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: center;
+
+    @include query($lt-md) {
+      align-items: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 4px;
+    text-transform: uppercase;
+
+    @include query($lt-lg) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    @include query($lt-md) {
+      font-size: 16px;
+      line-height: 18px;
+    }
+
+    br {
+      display: none;
+
+      @include query($lt-md) {
+        display: block;
+      }
+    }
+
+    img {
+      display: inline-flex;
+      height: 15px;
+      margin-left: 4px;
+
+      @include query($lt-lg) {
+        height: 13px;
+        margin-left: 3px;
+      }
+
+      @include query($lt-md) {
+        height: 12px;
+        margin-left: 3px;
+      }
+    }
+  }
+
+  .card__ruble {
+    display: inline;
+  }
+
+  &__link {
+    margin-bottom: 4px;
+    color: $fuchsia;
+  }
+
+  &__text {
+    color: $grey;
+
+    br {
+      display: none;
+
+      @include query($lt-md) {
+        display: block;
+      }
+    }
+
+    img {
+      margin-left: 2px;
+
+      @include query($lt-xl) {
+        height: 11px;
+      }
+    }
+  }
+}

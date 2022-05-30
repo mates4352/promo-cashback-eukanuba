@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="header__info container">
+
+    <a class="header__logo" href="#">
+      <img class="logo" src="./../../../../assets/images/logo.png" alt="Изображение логотипа Eukanuba">
+    </a>
+
+    <icon-fill></icon-fill>
+
+
+    <a
+        class="header__link button"
+        href="https://rc-eukanuba-cashback-new.s3.eu-central-1.amazonaws.com/Documents/Rules_Eukanuba_Cashback_New.pdf"
+        target="_blank">
+
+        <span>Полные</span> правила акции
+    </a>
+
+    <icon-question></icon-question>
+  </div>
+</header>
+
+<section class="banner" *ngIf="img">
+  <img class="banner__img" [src]="img" alt="Изображение баннера сайта Eukanuba">
+</section>

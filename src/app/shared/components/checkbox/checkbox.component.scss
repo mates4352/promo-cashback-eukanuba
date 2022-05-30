@@ -1,0 +1,48 @@
+@import "src/styles";
+
+.label {
+  position: relative;
+  display: block;
+  padding-left: 27px;
+
+  color: $grey;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    width: 11px;
+    height: 11px;
+
+    color: $grey;
+
+    border: 1px solid $grey;
+    border-radius: 2px
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) scale(0);
+
+    width: 13px;
+    height: 13px;
+
+    color: $grey;
+
+    background-color: $fuchsia;
+    border-radius: 2px;
+    transition: transform 500ms ease;
+  }
+}
+
+
+.input-checkbox:checked + .label::after {
+  transform: translateY(-50%) scale(1);
+}
